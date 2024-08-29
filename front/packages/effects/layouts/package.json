@@ -1,0 +1,47 @@
+{
+  "name": "@sugar/layout-ui",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "dependencies": {
+    "@vitejs/plugin-react-swc": "^3.0.0",
+    "handlebars": "^4.7.8",
+    "vite": "^4.0.0"
+  },
+  "devDependencies": {
+    "@changesets/cli": "^2.26.0",
+    "@sugar/eslint-config-custom": "workspace:*",
+    "@testing-library/jest-dom": "^5.16.5",
+    "@testing-library/react": "^13.4.0",
+    "@types/node": "^18.11.13",
+    "@types/react": "^18.2.22",
+    "@types/react-dom": "^18.2.7",
+    "@types/react-router-dom": "^5.3.3",
+    "jsdom": "latest",
+    "lint-staged": "^13.1.0",
+    "plop": "^3.1.1",
+    "prettier": "^2.8.1",
+    "turbo": "^1.10.12",
+    "typescript": "^5",
+    "vitest": "^0.25.8",
+    "antd": "^5.10.0",
+    "axios": "^1.4.0",
+    "styled-components": "^5.3.9",
+    "classnames": "^2.3.2"
+  },
+  "lint-staged": {
+    "**/*.{js,jsx,ts,tsx}": "eslint --ext .js,.jsx,.ts,.tsx --fix --max-warnings=0",
+    "**/*.{js,jsx,json,yml,yaml,css,less,scss,ts,tsx,md,graphql}": "prettier --write"
+  },
+  "packageManager": "pnpm@7.18.2",
+  "main": "plopfile.js",
+  "directories": {
+    "doc": "doc",
+    "example": "examples"
+  },
+  "license": "ISC"
+}

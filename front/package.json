@@ -1,0 +1,50 @@
+{
+  "name": "front",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "turbo run dev ",
+    "dev:phone": "pnpm --filter @sugar/phone dev",
+    "dev:web": "pnpm --filter @sugar/webs dev",
+    "new-app": "pnpm exec plop app",
+    "new-app-ts": "pnpm exec plop app-ts",
+    "new-library": "pnpm exec plop library",
+    "new-library-ts": "pnpm exec plop library-ts"
+  },
+  "keywords": [],
+  "author": "",
+  "dependencies": {
+    "@vitejs/plugin-react-swc": "^3.0.0",
+    "handlebars": "^4.7.8",
+    "vite": "^4.0.0"
+  },
+  "devDependencies": {
+    "@changesets/cli": "^2.26.0",
+    "@sugar/eslint-config-custom": "workspace:*",
+    "@testing-library/jest-dom": "^5.16.5",
+    "@testing-library/react": "^13.4.0",
+    "@types/node": "^18.11.13",
+    "@types/react": "^18.2.22",
+    "@types/react-dom": "^18.2.7",
+    "@types/react-router-dom": "^5.3.3",
+    "jsdom": "latest",
+    "lint-staged": "^13.1.0",
+    "plop": "^3.1.1",
+    "prettier": "^2.8.1",
+    "turbo": "^1.10.12",
+    "typescript": "^5",
+    "vitest": "^0.25.8"
+  },
+  "lint-staged": {
+    "**/*.{js,jsx,ts,tsx}": "eslint --ext .js,.jsx,.ts,.tsx --fix --max-warnings=0",
+    "**/*.{js,jsx,json,yml,yaml,css,less,scss,ts,tsx,md,graphql}": "prettier --write"
+  },
+  "packageManager": "pnpm@7.18.2",
+  "main": "plopfile.js",
+  "directories": {
+    "doc": "doc",
+    "example": "examples"
+  },
+  "license": "ISC"
+}

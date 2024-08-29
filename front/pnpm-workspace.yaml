@@ -1,0 +1,8 @@
+packages:
+  # all packages in direct subdirs of packages/
+  - 'packages/*'
+  - 'packages/effects/*'
+  - 'apps/*'
+  - 'internal/vite-config'
+  # exclude packages that are inside test directories
+  - '!**/test/**'
