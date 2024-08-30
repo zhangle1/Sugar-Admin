@@ -7,8 +7,9 @@ const Container = styled.div<{ authPanelCenter: boolean }>`
   position: relative;
   display: ${props => (props.authPanelCenter ? 'none' : 'flex')};
   width: 0;
-  flex: 1;
-  @media (min-width: 1024px) {
+  display: flex;
+  flex: 1 1 0%;
+ @media (min-width: 1024px) {
     display: block;
   }
 `;
@@ -27,7 +28,6 @@ const Content = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-right: 5rem;
   height: 100%;
   width: 100%;
   .animate-float {

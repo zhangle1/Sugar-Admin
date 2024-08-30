@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import LandView from './landview';
+import LoginFormView from './form';
 
 const AuthContainer = styled.div`
   display: flex;
@@ -59,6 +60,8 @@ function AuthenticationPage() {
         authPanelCenter={authPanelCenter}
         pageDescription={pageDescription}
       ></LandView>
+     <LoginFormView authPanelRight={authPanelRight} toolbarSolt></LoginFormView>
+
     </AuthContainer>
   );
 }

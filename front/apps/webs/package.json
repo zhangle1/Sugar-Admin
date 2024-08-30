@@ -11,7 +11,9 @@
   "dependencies": {
     "@ant-design/icons": "^5.1.0",
     "@sugar/layout-ui": "workspace:*",
-
+    "@sugar-core/preferences": "workspace:*",
+    "@reduxjs/toolkit": "^2.2.7",
+    "react-redux": "^9.1.2",
     "antd": "^5.10.0",
     "axios": "^1.4.0",
     "styled-components": "^5.3.9",
