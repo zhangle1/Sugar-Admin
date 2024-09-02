@@ -85,7 +85,6 @@ const ColorPicker = (props: any) => {
         ))}
       </ColorContainer>
       <ColorButton shape="circle" icon={<Icon component={PaletteIcon as React.ForwardRefExoticComponent<any>}></Icon>}>
-        {/* <PaletteOutlined style={{ color: '#1890ff', fontSize: '24px' }} /> */}
       </ColorButton>
     </Container>
   );

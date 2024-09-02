@@ -1,6 +1,6 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { ThemePreferences } from '../types';
-import { ThemeModeType } from '@sugar/@core/typings';
+import { ThemeModeType } from '@sugar/@core/base/typings';
 
 
 const initialState: ThemePreferences = {

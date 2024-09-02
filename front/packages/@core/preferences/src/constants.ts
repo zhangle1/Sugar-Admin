@@ -1,4 +1,4 @@
-import { BuiltinThemeType } from "@sugar/@core/typings";
+import { BuiltinThemeType } from "@sugar/@core/base/typings";
 
 interface BuiltinThemePreset {
     color: string;
