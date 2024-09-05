@@ -17,6 +17,8 @@
           <entry name="$MAVEN_REPOSITORY$/org/mapstruct/mapstruct-processor/1.5.5.Final/mapstruct-processor-1.5.5.Final.jar" />
           <entry name="$MAVEN_REPOSITORY$/org/mapstruct/mapstruct/1.5.5.Final/mapstruct-1.5.5.Final.jar" />
         </processorPath>
+        <module name="sugar-admin-spring-boot-starter-mybatis" />
+        <module name="sugar-admin-spring-boot-starter-web" />
         <module name="sugar-admin-common" />
       </profile>
     </annotationProcessing>
@@ -29,6 +31,8 @@
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="sugar-admin-common" options="-parameters" />
       <module name="sugar-admin-dependencies" options="" />
+      <module name="sugar-admin-spring-boot-starter-mybatis" options="-parameters" />
+      <module name="sugar-admin-spring-boot-starter-web" options="-parameters" />
       <module name="untitled" options="-parameters" />
     </option>
   </component>
