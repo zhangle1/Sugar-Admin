@@ -9,6 +9,9 @@
   <name>${project.artifactId}</name>
   <description>sugar项目基础脚手架</description>
   <url>https://github.com/YunaiV/ruoyi-vue-pro</url>
+  <modules>
+    <module>sugar-admin-dependencies</module>
+  </modules>
   <properties>
     <lombok.version>1.18.34</lombok.version>
     <maven.compiler.target>${java.version}</maven.compiler.target>

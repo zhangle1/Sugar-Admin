@@ -23,6 +23,7 @@
 <!--        <module>yudao-module-crm</module>-->
 <!--        <module>yudao-module-erp</module>-->
 <!--        <module>yudao-module-ai</module>-->
+        <module>sugar-admin-framework</module>
         <module>sugar-admin-dependencies</module>
     </modules>
 
@@ -48,13 +49,13 @@
 
     <dependencyManagement>
         <dependencies>
-<!--            <dependency>-->
-<!--                <groupId>cn.sugarAdmin.boot</groupId>-->
-<!--                <artifactId>yudao-dependencies</artifactId>-->
-<!--                <version>${revision}</version>-->
-<!--                <type>pom</type>-->
-<!--                <scope>import</scope>-->
-<!--            </dependency>-->
+            <dependency>
+                <groupId>cn.sugarAdmin.boot</groupId>
+                <artifactId>sugar-admin-dependencies</artifactId>
+                <version>${revision}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
         </dependencies>
     </dependencyManagement>
 
