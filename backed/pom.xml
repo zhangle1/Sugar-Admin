@@ -13,7 +13,7 @@
 <!--        <module>yudao-server</module>-->
         <!-- 各种 module 拓展 -->
 <!--        <module>yudao-module-system</module>-->
-<!--        <module>yudao-module-infra</module>-->
+<!--        <module>sugar-admin-module-infra</module>-->
 <!--        <module>yudao-module-member</module>-->
 <!--        <module>yudao-module-bpm</module>-->
 <!--        <module>yudao-module-report</module>-->
@@ -25,6 +25,7 @@
 <!--        <module>yudao-module-ai</module>-->
         <module>sugar-admin-framework</module>
         <module>sugar-admin-dependencies</module>
+        <module>sugar-admin-module-infra</module>
     </modules>
 
     <name>${project.artifactId}</name>

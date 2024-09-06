@@ -6,6 +6,7 @@
       <list>
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/sugar-admin-framework/pom.xml" />
+        <option value="$PROJECT_DIR$/sugar-module-infra/pom.xml" />
       </list>
     </option>
     <option name="ignoredFiles">

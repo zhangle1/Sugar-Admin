@@ -1,0 +1,2 @@
+cn.sugarAdmin.boot.framework.web.config.SugarWebAutoConfiguration
+cn.sugarAdmin.boot.framework.apilog.config.SugarApiLogAutoConfiguration

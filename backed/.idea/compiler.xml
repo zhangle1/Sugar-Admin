@@ -2,6 +2,7 @@
 <project version="4">
   <component name="CompilerConfiguration">
     <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
       <profile name="Maven default annotation processors profile" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
@@ -19,10 +20,14 @@
         </processorPath>
         <module name="sugar-admin-spring-boot-starter-mybatis" />
         <module name="sugar-admin-spring-boot-starter-web" />
+        <module name="sugar-admin-module-infra-biz" />
+        <module name="sugar-admin-module-infra-api" />
         <module name="sugar-admin-common" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="sugar-module-infra" target="17" />
+      <module name="sugar-module-infra-api" target="17" />
       <module name="untitled" target="17" />
       <module name="yudao-framework" target="17" />
     </bytecodeTargetLevel>
@@ -31,8 +36,12 @@
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="sugar-admin-common" options="-parameters" />
       <module name="sugar-admin-dependencies" options="" />
+      <module name="sugar-admin-module-infra-api" options="-parameters" />
+      <module name="sugar-admin-module-infra-biz" options="-parameters" />
       <module name="sugar-admin-spring-boot-starter-mybatis" options="-parameters" />
       <module name="sugar-admin-spring-boot-starter-web" options="-parameters" />
+      <module name="sugar-module-infra" options="" />
+      <module name="sugar-module-infra-api" options="-parameters" />
       <module name="untitled" options="-parameters" />
     </option>
   </component>
