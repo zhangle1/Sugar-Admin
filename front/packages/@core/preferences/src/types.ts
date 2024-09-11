@@ -19,6 +19,14 @@ interface ThemePreferences {
     semiDarkHeader: boolean;
     /** 是否开启半深色菜单（只在theme='light'时生效） */
     semiDarkSidebar: boolean;
+
+    foregroundColor:string;
+
+    mutedForegroundColor:string;
+
+    backgroundDeep:string;
+
+    background:string;
   }
 
 

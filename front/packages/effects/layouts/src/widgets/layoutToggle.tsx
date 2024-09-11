@@ -5,6 +5,7 @@ import {
   useAppSelector
 } from '@sugar/@core/preferences';
 import { LayoutIcon, PaletteIcon } from '@sugar/@core/ui-kit/antd-ui';
+import { useTranslate } from '@sugar/locales';
 import { Button, Dropdown, MenuProps } from 'antd';
 import { useMemo } from 'react';
 import { useDispatch } from 'react-redux';
@@ -22,18 +23,22 @@ const ButtonWrapper = styled(Button)`
 `;
 
 const LayoutToggleContainer = (props: any) => {
+
+  const t = useTranslate("authentication.layout")
+
+
   const items: MenuProps['items'] = [
     {
       key: 'panel-left',
-      label: '居左'
+      label: t('alignLeft')
     },
     {
       key: 'panel-center',
-      label: '居中'
+      label: t('center')
     },
     {
       key: 'panel-right',
-      label: '居右'
+      label: t('alignRight')
     }
   ];
 

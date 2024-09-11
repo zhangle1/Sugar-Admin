@@ -16,7 +16,7 @@ const ToolbarContainer = styled.div`
   padding-right: 0.25rem;
   padding-top: 0.25rem;
   padding-bottom: 0.25rem;
-  background-color: hsl(0 0% 100%);
+  background-color: ${props=>props.theme.background};
 `;
 
 const Toolbar = (props: any) => {

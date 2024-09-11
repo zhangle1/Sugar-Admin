@@ -1,5 +1,7 @@
 import styled from 'styled-components';
 import Toolbar from './toolbar';
+import { Outlet } from 'react-router-dom';
+import { ThemePreferences } from '@sugar/@core/preferences';
 
 const LoginFormContainer = styled.div`
   display: flex;
@@ -7,7 +9,7 @@ const LoginFormContainer = styled.div`
   justify-content: center;
   align-items: center;
   width: 40%;
-  background-color:hsl(210 11.11% 96.47%);
+  background-color: ${props => props.theme.backgroundDeep};
   position: relative;
   padding: 10px 6px; /* 10px top and bottom, 6px left and right */
   @media (min-width: 1024px) {
@@ -25,6 +27,7 @@ const LoginFormContainer = styled.div`
 const LoginFormView = ({ authPanelRight }: any) => {
   return <LoginFormContainer>
     <Toolbar></Toolbar>
+    <Outlet></Outlet>
   </LoginFormContainer>;
 };
 
