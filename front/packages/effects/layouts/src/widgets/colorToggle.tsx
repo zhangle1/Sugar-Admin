@@ -63,7 +63,8 @@ const ColorPicker = (props: any) => {
   const {setThemePreferences} = useThemeAction()
   const updateTheme=(key:string)=>{
     dispatch(setThemePreferences({
-        builtinType:key
+        builtinType:key,
+        colorPrimary:COLOR_PRESETS.filter(src=>src.type==key)?.[0]?.color
     }))
   }
 

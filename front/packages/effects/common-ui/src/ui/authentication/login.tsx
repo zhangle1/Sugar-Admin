@@ -1,8 +1,8 @@
 import { useTranslate } from '@sugar/locales';
 import { AuthenticationProps } from './types';
 import SectionHeader from './auth-title';
-import { SugarInput } from '../../components/input';
 import styled from 'styled-components';
+import { SugarInput } from '@sugar/@core/ui-kit/shadcn-ui';
 
 
 const LoginColumn=styled.div`
@@ -20,6 +20,11 @@ const LoginColumn=styled.div`
 
 `
 
+const Space=styled.div`
+
+  margin-bottom: 1rem;
+`
+
 const AuthenticationLogin = (props: AuthenticationProps) => {
   const { title } = props;
   const t = useTranslate('authentication');
@@ -30,12 +35,9 @@ const AuthenticationLogin = (props: AuthenticationProps) => {
         title={`${t('welcomeBack')}👋🏻`}
         description={t('loginSubtitle')}
       />
-      <SugarInput
-        name="admin"
-        errorTip={t('usernameTip')}
-        label={t('username')}
-        status="default"
-      ></SugarInput>
+      <SugarInput type='text' placeholder={t('username')} autoComplete='false' />
+      <Space></Space>
+      <SugarInput type='password' placeholder={t('password')}   autoComplete='false'/>
     </LoginColumn>
   );
 };

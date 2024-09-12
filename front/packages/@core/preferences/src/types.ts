@@ -27,6 +27,10 @@ interface ThemePreferences {
     backgroundDeep:string;
 
     background:string;
+
+    inputBackground:string;
+
+    inputBorderColor:string;
   }
 
 
