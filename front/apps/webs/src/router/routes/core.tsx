@@ -2,6 +2,7 @@ import AuthenticationLogin from '@sugar/common-ui/src/ui/authentication/login';
 import AuthenticationPage from '@sugar/layout-ui/src/authentication/authentication';
 import { Route } from 'react-router-dom';
 import { routes } from 'router/routes';
+import ProtectedRoute from './project-router';
 
 
 export function FallbackNotFoundRoute() {
@@ -10,7 +11,8 @@ export function FallbackNotFoundRoute() {
 
 export function CoreRoutes() {
   return [
-    <Route path={routes.root} element={<Root />}></Route>,
+    // <Route path={routes.root} element={<ProtectedRoute />}></Route>,
+    <Route path={routes.root} element={<ProtectedRoute  element={<Root></Root>}/>}></Route>,
     <Route path={routes.auth} element={<AuthenticationPage />}>
       <Route path="login" element={<AuthenticationLogin />} />
       <Route path="register" element={<Register />} />
@@ -28,9 +30,9 @@ function TextNotFound() {
   return <div>未发现页面</div>;
 }
 
-function Root() {
+const Root = () => {
   return <div>根页面</div>;
-}
+};
 
 function Auth() {
   return <div>登录页</div>;
