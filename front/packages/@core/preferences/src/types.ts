@@ -1,5 +1,11 @@
 import { AuthPageLayoutType, BuiltinThemeType, ThemeModeType } from "@sugar/@core/base/typings";
 
+
+import 'styled-components';
+
+declare module 'styled-components' {
+  export interface DefaultTheme extends ThemePreferences {}
+}
 interface ThemePreferences {
     /** 内置主题名 */
     builtinType: BuiltinThemeType;
@@ -31,6 +37,8 @@ interface ThemePreferences {
     inputBackground:string;
 
     inputBorderColor:string;
+
+    primaryForeground:string;
   }
 
 

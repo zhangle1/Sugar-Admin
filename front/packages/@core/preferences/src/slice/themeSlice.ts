@@ -9,7 +9,8 @@ export const lightTheme = {
   backgroundDeep:'hsl(210 11.11% 96.47%)',
   background:'hsl(0 0% 100%)',
   inputBackground:'hsl(0 0% 100%)',
-  inputBorderColor:'hsl(240deg 5.88% 90%)'
+  inputBorderColor:'hsl(240deg 5.88% 90%)',
+  primaryForeground:'hsl(0 0% 98%)'
 };
 
 export const darkTheme = {
@@ -18,13 +19,15 @@ export const darkTheme = {
   backgroundDeep:'hsl(220deg 13.06% 9%)',
   background:'hsl(222.34deg 10.43% 12.27%)',
   inputBackground:'hsl(0deg 0% 100% / 5%)',
-  inputBorderColor:'hsl(0deg 0% 100% / 10%)'
+  inputBorderColor:'hsl(0deg 0% 100% / 10%)',
+  primaryForeground:'hsl(0 0% 98%)'
+
 };
 
 const initialState: ThemePreferences = {
   builtinType: 'default',
   colorDestructive: '#f00',
-  colorPrimary: '#00f',
+  colorPrimary: 'hsl(231 98% 65%)',
   colorSuccess: '#0f0',
   colorWarning: '#ff0',
   mode: 'light',
@@ -37,6 +40,7 @@ const initialState: ThemePreferences = {
   background:lightTheme.background,
   inputBackground:lightTheme.inputBackground,
   inputBorderColor:lightTheme.inputBorderColor,
+  primaryForeground:lightTheme.primaryForeground,
 };
 
 const themeSlice = createSlice({
