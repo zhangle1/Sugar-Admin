@@ -1,3 +1,5 @@
 export * from './input'
 export * from './checkbox'
 export * from './label'
+export * from './button'
+export * from './icon'

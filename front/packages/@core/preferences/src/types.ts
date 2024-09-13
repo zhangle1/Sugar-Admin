@@ -39,6 +39,10 @@ interface ThemePreferences {
     inputBorderColor:string;
 
     primaryForeground:string;
+
+    accentForeground:string;
+
+    accent:string;
   }
 
 

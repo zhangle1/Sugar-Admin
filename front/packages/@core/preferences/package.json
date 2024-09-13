@@ -9,18 +9,20 @@
   "author": "",
   "dependencies": {
     "@reduxjs/toolkit": "^2.2.7",
-    "react-redux": "^9.1.2",
     "@vitejs/plugin-react-swc": "^3.0.0",
+    "color": "^4.2.3",
     "handlebars": "^4.7.8",
+    "react-redux": "^9.1.2",
     "vite": "^4.0.0"
   },
   "devDependencies": {
     "@changesets/cli": "^2.26.0",
     "@sugar-core/typings": "workspace:*",
-    "@sugar/locales": "workspace:*",
     "@sugar/eslint-config-custom": "workspace:*",
+    "@sugar/locales": "workspace:*",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
+    "@types/color": "^3.0.6",
     "@types/node": "^18.11.13",
     "@types/react": "^18.2.22",
     "@types/react-dom": "^18.2.7",

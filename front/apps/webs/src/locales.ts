@@ -6,6 +6,18 @@ export const appDesignerLocales: ILocales = {
       chinese: '中文',
       english: '英文'
     },
+    "common": {
+      "back": "返回",
+      "backToHome": "返回首页",
+      "login": "登录",
+      "logout": "退出登录",
+      "prompt": "提示",
+      "cancel": "取消",
+      "confirm": "确认",
+      "noData": "暂无数据",
+      "refresh": "刷新",
+      "loadingMenu": "加载菜单中"
+    },
     authentication: {
       layout: {
         center: '居中',
@@ -62,6 +74,18 @@ export const appDesignerLocales: ILocales = {
     preferences: {
       chinese: 'chinese',
       english: 'english'
+    },
+    "common": {
+      "back": "Back",
+      "backToHome": "Back To Home",
+      "login": "Login",
+      "logout": "Logout",
+      "prompt": "Prompt",
+      "cancel": "Cancel",
+      "confirm": "Comfirm",
+      "noData": "No Data",
+      "refresh": "Refresh",
+      "loadingMenu": "Loading Menu"
     },
     authentication: {
       layout: {

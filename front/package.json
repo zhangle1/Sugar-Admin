@@ -4,9 +4,9 @@
   "description": "",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "turbo run dev ",
+    "dev:web": "turbo run dev ",
     "dev:phone": "pnpm --filter @sugar/phone dev",
-    "dev:web": "pnpm --filter @sugar/webs dev",
+    "dev": "pnpm --filter @sugar/webs dev",
     "new-app": "pnpm exec plop app",
     "new-app-ts": "pnpm exec plop app-ts",
     "new-library": "pnpm exec plop library",
