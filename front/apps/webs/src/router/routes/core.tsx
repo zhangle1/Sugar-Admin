@@ -4,6 +4,9 @@ import { Route } from 'react-router-dom';
 import { routes } from 'router/routes';
 import ProtectedRoute from './project-router';
 import FogetPasswordContainer from '@sugar/common-ui/src/ui/authentication/forget-password';
+import CodeLoginContainer from '@sugar/common-ui/src/ui/authentication/code-login';
+import QrCodeLoginContainer from '@sugar/common-ui/src/ui/authentication/qr-code-login';
+import RegisterContainer from '@sugar/common-ui/src/ui/authentication/register';
 
 
 export function FallbackNotFoundRoute() {
@@ -17,16 +20,15 @@ export function CoreRoutes() {
     <Route path={routes.auth} element={<AuthenticationPage />}>
       <Route path="login" element={<AuthenticationLogin />} />
       <Route path="forget-password" element={<FogetPasswordContainer />} />
-      <Route path="register" element={<Register />} />
+      <Route path="code-login" element={<CodeLoginContainer />} />
+      <Route path="qrcode-login" element={<QrCodeLoginContainer />} />
+      <Route path="register" element={<RegisterContainer />} />
     </Route>
   ];
 }
 
 
 
-function Register(){
-  return <div>注册</div>
-}
 
 function TextNotFound() {
   return <div>未发现页面</div>;

@@ -4,7 +4,6 @@ import {
   useAppAction,
   useAppSelector
 } from '@sugar/@core/preferences';
-import { LayoutIcon, PaletteIcon } from '@sugar/@core/ui-kit/antd-ui';
 import { useTranslate } from '@sugar/locales';
 import { Button, Dropdown, MenuProps } from 'antd';
 import { useDispatch } from 'react-redux';

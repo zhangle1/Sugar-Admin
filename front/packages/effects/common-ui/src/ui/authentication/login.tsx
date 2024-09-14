@@ -132,11 +132,20 @@ const AuthenticationLogin = (props: AuthenticationProps) => {
       </SugarButton>
       <Space></Space>
       <OhterLoginWarpper>
-        <SugarButton variant="outline" style={{ width: '50%' }}>
+        <SugarButton
+          onClick={() => {
+            handleGo(defaultProps.codeLoginPath);
+          }}
+          variant="outline"
+          style={{ width: '50%' }}
+        >
           {t('mobileLogin')}
         </SugarButton>
         <SugarButton
           variant="outline"
+          onClick={() => {
+            handleGo(defaultProps.qrCodeLoginPath);
+          }}
           style={{ width: '50%', marginLeft: '1rem' }}
         >
           {t('qrcodeLogin')}
@@ -149,7 +158,11 @@ const AuthenticationLogin = (props: AuthenticationProps) => {
         <SugarLabel style={{ marginLeft: '1rem' }}>
           {t('accountTip')}
         </SugarLabel>
-        <LinkLabel style={{ marginLeft: '0.25rem' }}>
+        <LinkLabel style={{ marginLeft: '0.25rem' }}
+            onClick={() => {
+              handleGo(defaultProps.registerPath);
+            }}
+        >
           {t('createAccount')}
         </LinkLabel>
       </RegisterRowWrapper>
