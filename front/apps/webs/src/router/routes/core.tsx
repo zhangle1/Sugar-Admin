@@ -3,6 +3,7 @@ import AuthenticationPage from '@sugar/layout-ui/src/authentication/authenticati
 import { Route } from 'react-router-dom';
 import { routes } from 'router/routes';
 import ProtectedRoute from './project-router';
+import FogetPasswordContainer from '@sugar/common-ui/src/ui/authentication/forget-password';
 
 
 export function FallbackNotFoundRoute() {
@@ -15,6 +16,7 @@ export function CoreRoutes() {
     <Route path={routes.root} element={<ProtectedRoute  element={<Root></Root>}/>}></Route>,
     <Route path={routes.auth} element={<AuthenticationPage />}>
       <Route path="login" element={<AuthenticationLogin />} />
+      <Route path="forget-password" element={<FogetPasswordContainer />} />
       <Route path="register" element={<Register />} />
     </Route>
   ];

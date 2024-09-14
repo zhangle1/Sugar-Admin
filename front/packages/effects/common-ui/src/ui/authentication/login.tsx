@@ -13,6 +13,7 @@ import {
 } from '@sugar/@core/preferences';
 import { SugarButton } from 'packages/@core/ui-kit/shadcn-ui/src/components/button/button';
 import ThirdPartyLogin from './third-part-login';
+import { useNavigate } from 'react-router-dom';
 
 const LoginColumn = styled.div`
   margin-top: 1.5rem; /* mt-6 对应的 CSS 是 margin-top: 1.5rem */
@@ -68,10 +69,33 @@ const RegisterRowWrapper = styled.div`
   align-items: center;
 `;
 
+const defaultProps = {
+  codeLoginPath: '/auth/code-login',
+  forgetPasswordPath: '/auth/forget-password',
+  loading: false,
+  passwordPlaceholder: '',
+  qrCodeLoginPath: '/auth/qrcode-login',
+  registerPath: '/auth/register',
+  showCodeLogin: true,
+  showForgetPassword: true,
+  showQrcodeLogin: true,
+  showRegister: true,
+  showRememberMe: true,
+  showThirdPartyLogin: true,
+  subTitle: '',
+  title: '',
+  usernamePlaceholder: ''
+};
+
 const AuthenticationLogin = (props: AuthenticationProps) => {
-  const { title } = props;
+  const { title, forgetPasswordPath } = { ...props };
   const t = useTranslate('authentication');
   const commonT = useTranslate('');
+  const navigate = useNavigate();
+  const handleGo = (path: string) => {
+    navigate(path);
+  };
+
   // $t('authentication.welcomeBack')
   return (
     <LoginColumn>
@@ -98,7 +122,9 @@ const AuthenticationLogin = (props: AuthenticationProps) => {
             {t('rememberMe')}
           </SugarLabel>
         </CheckWarpper>
-        <LinkLabel>{t('forgetPassword')}</LinkLabel>
+        <LinkLabel onClick={() => handleGo(defaultProps.forgetPasswordPath)}>
+          {t('forgetPassword')}
+        </LinkLabel>
       </CheckRowWrapper>
       <Space></Space>
       <SugarButton style={{ width: '100%' }}>
@@ -123,7 +149,9 @@ const AuthenticationLogin = (props: AuthenticationProps) => {
         <SugarLabel style={{ marginLeft: '1rem' }}>
           {t('accountTip')}
         </SugarLabel>
-        <LinkLabel style={{marginLeft:'0.25rem'}}>{t('createAccount')}</LinkLabel>
+        <LinkLabel style={{ marginLeft: '0.25rem' }}>
+          {t('createAccount')}
+        </LinkLabel>
       </RegisterRowWrapper>
     </LoginColumn>
   );

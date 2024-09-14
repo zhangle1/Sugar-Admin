@@ -37,6 +37,7 @@ export class LocalesManager implements ILocalesManager {
   }
 
   registerLocales(...locales: ILocales[]): void {
+    
     let newLocales = { ...this.locales }
     newLocales = _.merge(newLocales, ...locales)
     this.resources.setValue({ ...this.resources.getValue(), locales: newLocales })
