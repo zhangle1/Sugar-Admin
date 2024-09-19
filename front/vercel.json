@@ -13,5 +13,8 @@
       "src": "/(.*)",
       "dest": "/$1"
     }
-  ]
+  ],
+  "env": {
+    "PACKAGE_MANAGER": "pnpm"  
+  }
 }
