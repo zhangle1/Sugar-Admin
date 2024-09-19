@@ -1,10 +1,20 @@
 {
   "builds": [
     {
-      "src": "front/package.json", 
+      "src": "front/package.json",
+      "use": "@vercel/static-build",
       "config": {
-        "distDir": "front/apps/webs/dist"  
-      }
+        "distDir": "front/apps/webs/dist"
+      },
+      "env": {
+        "PACKAGE_MANAGER": "pnpm"
+      },
+      "routes": [
+        {
+          "src": "/(.*)",
+          "dest": "/$1"
+        }
+      ]
     }
   ],
   "routes": [
@@ -12,5 +22,8 @@
       "src": "/(.*)",
       "dest": "/$1"
     }
-  ]
+  ],
+  "env": {
+    "PACKAGE_MANAGER": "pnpm"
+  }
 }
