@@ -17,7 +17,6 @@
   },
   "devDependencies": {
     "@changesets/cli": "^2.26.0",
-    "@sugar-core/typings": "workspace:*",
     "@sugar/eslint-config-custom": "workspace:*",
     "@sugar/shared": "workspace:*",
     "@testing-library/jest-dom": "^5.16.5",

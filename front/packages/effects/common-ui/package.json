@@ -21,7 +21,6 @@
     "@changesets/cli": "^2.26.0",
     "@sugar-core/preferences": "workspace:*",
     "@sugar-core/shadcn-ui": "workspace:*",
-    "@sugar-core/typings": "workspace:*",
     "@sugar/eslint-config-custom": "workspace:*",
     "@sugar/locales": "workspace:*",
     "@testing-library/jest-dom": "^5.16.5",
