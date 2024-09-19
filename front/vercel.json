@@ -6,9 +6,7 @@
       "config": {
         "distDir": "apps/webs/dist"
       },
-      "env": {
-        "PACKAGE_MANAGER": "pnpm"
-      },
+   
       "routes": [
         {
           "src": "/(.*)",
