@@ -1,11 +1,20 @@
 {
   "builds": [
     {
-      "src": "package.json", 
+      "src": "package.json",
       "use": "@vercel/static-build",
       "config": {
-        "distDir": "apps/webs/dist"  
-      }
+        "distDir": "apps/webs/dist"
+      },
+      "env": {
+        "PACKAGE_MANAGER": "pnpm"
+      },
+      "routes": [
+        {
+          "src": "/(.*)",
+          "dest": "/$1"
+        }
+      ]
     }
   ],
   "routes": [
@@ -15,6 +24,6 @@
     }
   ],
   "env": {
-    "PACKAGE_MANAGER": "pnpm"  
+    "PACKAGE_MANAGER": "pnpm"
   }
 }
