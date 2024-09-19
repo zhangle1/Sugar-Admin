@@ -3,14 +3,17 @@
   "version": "1.0.0",
   "description": "",
   "scripts": {
+    "build": "turbo run build",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev:web": "turbo run dev ",
+    "dev:web": "turbo run dev  --filter !@sugar/phone",
     "dev:phone": "pnpm --filter @sugar/phone dev",
-    "dev": "pnpm --filter @sugar/webs dev",
+    "dev": "turbo run dev  --filter !@sugar/phone",
     "new-app": "pnpm exec plop app",
     "new-app-ts": "pnpm exec plop app-ts",
     "new-library": "pnpm exec plop library",
-    "new-library-ts": "pnpm exec plop library-ts"
+    "new-library-ts": "pnpm exec plop library-ts",
+    "dev:full": "pnpm --filter @sugar/backed-mock dev"
+
   },
   "keywords": [],
   "author": "",
