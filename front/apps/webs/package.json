@@ -12,6 +12,8 @@
     "@ant-design/icons": "^5.1.0",
     "@sugar/layout-ui": "workspace:*",
     "@sugar-core/preferences": "workspace:*",
+    "@sugar/hooks":"workspace:*",
+    "@sugar/request":"workspace:*",
     "@sugar/common-ui": "workspace:*",
     "@sugar/locales": "workspace:*",
     "@reduxjs/toolkit": "^2.2.7",

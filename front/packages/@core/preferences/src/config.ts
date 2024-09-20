@@ -1,11 +1,15 @@
 import { configureStore } from '@reduxjs/toolkit';
 import themeReducer from './slice/themeSlice';
 import appReducer from './slice/appSlice';
+import userReducer from './slice/userSlice';
+import accessReducer from './slice/accessSlice';
 
 const preferencesStore = configureStore({
   reducer: {
     theme: themeReducer,
-    app: appReducer
+    app: appReducer,
+    user:userReducer,
+    access:accessReducer
   } 
 });
 
