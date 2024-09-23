@@ -58,6 +58,8 @@ const themeSlice = createSlice({
     setMode(state, action: PayloadAction<ThemeModeType>) {
       state.mode = action.payload;
     },
+    resetTheme:()=>initialState
+
     // 其他 reducers
   }
 });

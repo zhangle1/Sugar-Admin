@@ -12,6 +12,7 @@
     "@ant-design/icons": "^5.1.0",
     "@sugar/layout-ui": "workspace:*",
     "@sugar-core/preferences": "workspace:*",
+    "@sugar-core/typings": "workspace:*",
     "@sugar/hooks":"workspace:*",
     "@sugar/request":"workspace:*",
     "@sugar/common-ui": "workspace:*",

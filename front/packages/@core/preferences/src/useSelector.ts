@@ -15,3 +15,14 @@ export function useAppSelector(){
     const select = useSelector((state: PreferencesState) => state.app);
     return select
 }
+
+export function useAccessSelector(){
+    const select = useSelector((state: PreferencesState) => state.access);
+    return select
+}
+
+
+export function useUserSelector(){
+    const select = useSelector((state: PreferencesState) => state.user);
+    return select
+}

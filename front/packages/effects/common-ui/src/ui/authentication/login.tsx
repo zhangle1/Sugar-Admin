@@ -88,7 +88,7 @@ const defaultProps = {
 };
 
 const AuthenticationLogin = (props: AuthenticationProps) => {
-  const { title, forgetPasswordPath } = { ...props };
+  const { title, forgetPasswordPath,onLogin } = { ...props };
   const t = useTranslate('authentication');
   const commonT = useTranslate('');
   const navigate = useNavigate();
@@ -127,7 +127,11 @@ const AuthenticationLogin = (props: AuthenticationProps) => {
         </LinkLabel>
       </CheckRowWrapper>
       <Space></Space>
-      <SugarButton style={{ width: '100%' }}>
+      <SugarButton style={{ width: '100%' }}
+        onClick={()=>{
+          onLogin?.()
+        }}
+      >
         {commonT('common.login')}
       </SugarButton>
       <Space></Space>

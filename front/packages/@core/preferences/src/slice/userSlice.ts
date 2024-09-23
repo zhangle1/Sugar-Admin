@@ -41,7 +41,8 @@ const userSlice = createSlice({
   reducers: {
     setUser(state, action: PayloadAction<Partial<BasicUserInfo>>) {
       return { ...state, ...action.payload };
-    }
+    },
+    resetUser:()=>initialState
   }
 });
 

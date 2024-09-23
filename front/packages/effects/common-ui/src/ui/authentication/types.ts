@@ -71,6 +71,8 @@ interface AuthenticationProps {
    * @zh_CN 用户名占位符
    */
   usernamePlaceholder?: string;
+
+  onLogin:Function
 }
 
 interface LoginAndRegisterParams {
@@ -94,6 +96,8 @@ interface LoginCodeEmits {
 interface RegisterEmits {
   submit: [LoginAndRegisterParams];
 }
+
+
 
 export type {
   AuthenticationProps,

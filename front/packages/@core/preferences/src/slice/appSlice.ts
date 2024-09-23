@@ -17,7 +17,9 @@ const appSlice = createSlice({
     reducers:{
         setAppPreferences(state,action: PayloadAction<Partial<AppPreferences>>){
             return {...state,...action.payload}
-        }
+        },
+        resetApp:()=>initialState
+
     }
 })
 
