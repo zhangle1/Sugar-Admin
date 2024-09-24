@@ -14,7 +14,7 @@
     "@sugar-core/preferences": "workspace:*",
     "@sugar/hooks":"workspace:*",
     "@sugar-core/shadcn-ui":"workspace:*",
-    "@sugar-core/types":"workspace:*",
+    "@sugar-core/types":"workspace:1.0.0",
     "@sugar/request":"workspace:*",
     "@sugar/common-ui": "workspace:*",
     "@sugar/locales": "workspace:*",
