@@ -22,11 +22,16 @@ function login(req, res) {
     refreshTokens.push(refreshToken);
 
     return res.json({
-      accessToken,
-      desc: 'Login successful',
-      realName: user.realName,
-      userId: user.id,
-      username: user.username,
+      code:0,
+      message:'登录成功',
+
+      data:{
+        accessToken,
+        desc: 'Login successful',
+        realName: user.realName,
+        userId: user.id,
+        username: user.username,
+      },
     });
   } else {
     return res.status(401).send('Invalid credentials');
@@ -47,7 +52,8 @@ function refreshToken(req, res) {
     if (err) return res.sendStatus(403);
 
     const accessToken = jwt.sign({ id: user.id }, 'access_secret_key', { expiresIn: '15m' });
-    res.json({ data: accessToken, status: 200 });
+    res.json({ data: accessToken, status: 200 ,      code:0,
+      message:'刷新token成功',});
   });
 }
 
@@ -64,7 +70,7 @@ function logout(req, res) {
  * 获取用户权限码接口
  */
 function getAccessCodes(req, res) {
-  res.json(['code1', 'code2', 'code3']); // 示例权限码
+  res.json({data:['code1', 'code2', 'code3'],code:0,message:'获取权限码成功'}); // 示例权限码
 }
 
 /**
@@ -80,14 +86,17 @@ function getUserInfo(req, res) {
     const userInfo = users.find(u => u.id === user.id);
     if (userInfo) {
       res.json({
-        desc: 'User info retrieved successfully',
-        homePath: userInfo.homePath,
-        token,
-        avatar: userInfo.avatar,
-        realName: userInfo.realName,
-        roles: userInfo.roles,
-        userId: userInfo.id,
-        username: userInfo.username,
+        code:0,
+        data:{
+          desc: 'User info retrieved successfully',
+          homePath: userInfo.homePath,
+          token,
+          avatar: userInfo.avatar,
+          realName: userInfo.realName,
+          roles: userInfo.roles,
+          userId: userInfo.id,
+          username: userInfo.username,
+        },message:'获取用户信息成功'
       });
     } else {
       res.sendStatus(404);

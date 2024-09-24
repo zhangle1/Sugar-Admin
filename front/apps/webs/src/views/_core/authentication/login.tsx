@@ -5,10 +5,7 @@ const LoginView = (props: any) => {
   const { authLogin, loading } = useAuth();
   const login = (values: any) => {
 
-    authLogin(values,()=>{
-
-      
-    })
+    authLogin(values)
 
   };
 

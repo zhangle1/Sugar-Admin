@@ -4,7 +4,7 @@ import {
   RequestClient
 } from '@sugar/request/index';
 import { useAppConfig } from '@sugar/hooks/index';
-import { getLocale, setToken } from 'utils/local-strage-utils';
+import { getLocale, getToken, setToken } from 'utils/local-strage-utils';
 import { useNavigate } from 'react-router-dom';
 import { routes } from 'router/routes';
 import { refreshTokenApi } from './core';
@@ -36,8 +36,8 @@ function createRequestClient(baseURL: string) {
   client.addRequestInterceptor({
     fulfilled: async config => {
       const locale = getLocale();
-
-      config.headers.Authorization = formatToken(locale);
+      const token= getToken()
+      config.headers.authorization = formatToken(token);
       config.headers['Accept-Language'] = locale;
       return config;
     }
@@ -46,6 +46,7 @@ function createRequestClient(baseURL: string) {
   // response数据解构
   client.addResponseInterceptor({
     fulfilled: response => {
+      
       const { data: responseData, status } = response;
 
       const { code, data, message: msg } = responseData;

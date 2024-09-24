@@ -13,7 +13,7 @@ import { setToken } from 'utils/local-strage-utils';
 
 import { getUserInfoApi } from 'api/core/user';
 import { useRef, useState } from 'react';
-import { UserInfo } from '@sugar/types';
+import { UserInfo,BasicUserInfo } from '@sugar/types';
 
 const useAuth = () => {
   const dispatch: PreferencesDispatch = useDispatch();
@@ -28,7 +28,7 @@ const useAuth = () => {
     onSuccess?: () => Promise<void> | void
   ) => {
     // 异步处理用户登录操作并获取 accessToken
-    let userInfo: null | UserInfo = null;
+    let userInfo: null | BasicUserInfo = null;
 
     try {
       loading.current = true;
@@ -44,11 +44,11 @@ const useAuth = () => {
           getAccessCodesApi()
         ]);
 
-        userInfo = fetchUserInfoResult;
+        userInfo = fetchUserInfoResult ;
         
         dispatch(setUser(userInfo));
         dispatch(setAccessCodes(accessCodes))
-
+        debugger
         onSuccess?await onSuccess?.():navigate(routes.defaultHome)
 
       }
