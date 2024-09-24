@@ -5,6 +5,7 @@ packages:
   - 'packages/@core/*'
   - 'packages/@core/ui-kit/*'
   - 'packages/@core/base/*'
+  - 'packages/@core/base/typings'
   - 'apps/*'
   - 'internal/vite-config'
   # exclude packages that are inside test directories
