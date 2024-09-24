@@ -2,7 +2,6 @@ export const WeiXinSugarIcon = () => {
   return (
     <svg
       t="1726215189135"
-      class="icon"
       viewBox="0 0 1024 1024"
       version="1.1"
       xmlns="http://www.w3.org/2000/svg"
@@ -28,7 +27,6 @@ export const QQSugarIcon = () => {
   return (
     <svg
       t="1726215745741"
-      class="icon"
       viewBox="0 0 1024 1024"
       version="1.1"
       xmlns="http://www.w3.org/2000/svg"
@@ -50,7 +48,6 @@ export const GithubSugarIcon = () => {
   return (
     <svg
       t="1726215806910"
-      class="icon"
       viewBox="0 0 1024 1024"
       version="1.1"
       xmlns="http://www.w3.org/2000/svg"
@@ -72,7 +69,6 @@ export const MaYunSugarIcon = () => {
   return (
     <svg
       t="1726215844823"
-      class="icon"
       viewBox="0 0 1242 1024"
       version="1.1"
       xmlns="http://www.w3.org/2000/svg"

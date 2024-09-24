@@ -13,6 +13,8 @@
     "@sugar/layout-ui": "workspace:*",
     "@sugar-core/preferences": "workspace:*",
     "@sugar/hooks":"workspace:*",
+    "@sugar-core/shadcn-ui":"workspace:*",
+    "@sugar-core/typings":"workspace:*",
     "@sugar/request":"workspace:*",
     "@sugar/common-ui": "workspace:*",
     "@sugar/locales": "workspace:*",
@@ -28,7 +30,9 @@
     "react-router-dom": "^6.9.0",
     "vite-tsconfig-paths": "^4.0.7",
     "lodash": "^4.17.21",
-    "web-vitals": "^3.3.0"
+    "web-vitals": "^3.3.0",
+    "react-hook-form": "^7.44.2",
+    "zod": "^3.21.4"
   },
   "devDependencies": {
     "@types/mockjs": "^1.0.7",

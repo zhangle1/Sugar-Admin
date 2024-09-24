@@ -24,6 +24,9 @@ export const appDesignerLocales: ILocales = {
         alignLeft: '居左',
         alignRight: '居右'
       },
+      usernameInputError: '用户名输入必须要两位字符',
+      passwordInputError: '密码输入必须要六位字符',
+
       welcomeBack: '欢迎回来',
       pageTitle: '开箱即用的大型中后台管理系统',
       pageDesc: '工程化、高性能、跨组件库的前端模版',
@@ -102,6 +105,8 @@ export const appDesignerLocales: ILocales = {
       username: 'Username',
       password: 'Password',
       usernameTip: 'Please enter username',
+      usernameInputError: 'Username must be at least 2 characters.',
+      passwordInputError: 'Username must be at least 6 characters.',
       passwordTip: 'Please enter password',
       rememberMe: 'Remember Me',
       createAnAccount: 'Create an Account',
