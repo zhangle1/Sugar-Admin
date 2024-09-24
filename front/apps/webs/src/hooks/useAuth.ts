@@ -13,7 +13,7 @@ import { setToken } from 'utils/local-strage-utils';
 
 import { getUserInfoApi } from 'api/core/user';
 import { useRef, useState } from 'react';
-import { UserInfo } from '@sugar-core/types';
+import { UserInfo } from '@sugar/types';
 
 const useAuth = () => {
   const dispatch: PreferencesDispatch = useDispatch();

@@ -23,7 +23,6 @@
     "**/*.{js,jsx,ts,tsx}": "eslint --ext .js,.jsx,.ts,.tsx --fix --max-warnings=0",
     "**/*.{js,jsx,json,yml,yaml,css,less,scss,ts,tsx,md,graphql}": "prettier --write"
   },
-  "packageManager": "pnpm@7.18.2",
   "main": "plopfile.js",
   "directories": {
     "doc": "doc",

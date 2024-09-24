@@ -1,4 +1,4 @@
-import { UserInfo } from "@sugar-core/typings/src/basic";
+import { UserInfo } from "@sugar/types";
 import { requestClient } from "api/request";
 
 
