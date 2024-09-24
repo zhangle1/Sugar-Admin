@@ -21,8 +21,7 @@
     "@vitejs/plugin-react-swc": "^3.0.0",
     "handlebars": "^4.7.8",
     "tailwindcss-animate": "^1.0.7",
-    "vite": "^4.0.0",
-    "@sugar-core/types":"workspace:*"
+    "vite": "^4.0.0"
   },
   "devDependencies": {
     "@changesets/cli": "^2.26.0",
