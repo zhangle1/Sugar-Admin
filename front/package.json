@@ -52,17 +52,5 @@
     "doc": "doc",
     "example": "examples"
   },
-  "license": "ISC",
-  "engines": {
-    "node": ">=18",
-    "pnpm": ">=8"
-  },
-  "packageManager": "pnpm@8.15.9",
-  "pnpm": {
-    "peerDependencyRules": {
-      "allowedVersions": {
-        "eslint": "*"
-      }
-    }
-  }
+  "license": "ISC"
 }
