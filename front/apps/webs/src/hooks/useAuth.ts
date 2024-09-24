@@ -10,9 +10,10 @@ import { routes } from 'router/routes';
 import { getAccessCodesApi, loginApi, logoutApi } from 'api/core/auth';
 import { LoginAndRegisterParams } from '@sugar/common-ui';
 import { setToken } from 'utils/local-strage-utils';
-import { UserInfo } from '@sugar-core/typings/src/basic';
+
 import { getUserInfoApi } from 'api/core/user';
 import { useRef, useState } from 'react';
+import { UserInfo } from '@sugar-core/types';
 
 const useAuth = () => {
   const dispatch: PreferencesDispatch = useDispatch();
