@@ -49,7 +49,7 @@ const useAuth = () => {
         dispatch(setUser(userInfo));
         dispatch(setAccessCodes(accessCodes))
         debugger
-        onSuccess?await onSuccess?.():navigate(routes.defaultHome)
+        onSuccess?await onSuccess?.():navigate(routes.root)
 
       }
     } finally {

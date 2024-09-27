@@ -26,3 +26,9 @@ export function useUserSelector(){
     const select = useSelector((state: PreferencesState) => state.user);
     return select
 }
+
+export function useSidebarSelector(){
+    const select = useSelector((state: PreferencesState) => state.sidebar);
+    return select
+}
+

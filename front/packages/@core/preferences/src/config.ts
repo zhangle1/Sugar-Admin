@@ -3,13 +3,15 @@ import themeReducer from './slice/themeSlice';
 import appReducer from './slice/appSlice';
 import userReducer from './slice/userSlice';
 import accessReducer from './slice/accessSlice';
+import sidebarReducer from './slice/sidebarSlice';
 
 const preferencesStore = configureStore({
   reducer: {
     theme: themeReducer,
     app: appReducer,
     user:userReducer,
-    access:accessReducer
+    access:accessReducer,
+    sidebar:sidebarReducer
   } 
 });
 

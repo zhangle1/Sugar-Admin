@@ -17,10 +17,7 @@ export function FallbackNotFoundRoute() {
 export function CoreRoutes() {
   return [
     // <Route path={routes.root} element={<ProtectedRoute />}></Route>,
-    <Route
-      path={routes.root}
-      element={<ProtectedRoute element={<Root></Root>} />}
-    ></Route>,
+
     <Route path={routes.auth} element={<AuthenticationPage />}>
       <Route path="login" element={<LoginView />} />
       <Route path="forget-password" element={<FogetPasswordContainer />} />
@@ -38,9 +35,6 @@ function TextNotFound() {
   return <div>未发现页面</div>;
 }
 
-const Root = () => {
-  return <div>根页面</div>;
-};
 
 function Auth() {
   return <div>登录页</div>;
