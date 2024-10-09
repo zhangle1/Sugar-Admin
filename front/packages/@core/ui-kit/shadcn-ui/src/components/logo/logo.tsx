@@ -35,7 +35,7 @@ const LogoImage = styled.img`
 `;
 
 const LogoText = styled.span`
-  color:${props => props.theme.colorPrimary}
+  color:${props => props.theme.colorPrimary};
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -49,7 +49,7 @@ const SugarLogo: React.FC<Props> = ({
   text,
   theme = 'light'
 }) => {
-  console.log("collapsed:"+collapsed)
+  console.log('collapsed:' + collapsed);
   return (
     <Container className={theme}>
       <LogoLink href={href}>

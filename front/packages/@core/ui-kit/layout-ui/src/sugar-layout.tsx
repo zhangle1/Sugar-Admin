@@ -1,4 +1,4 @@
-import React, { ReactNode, useMemo, useState } from 'react';
+import React, { MouseEventHandler, ReactNode, useMemo, useState } from 'react';
 import styled from 'styled-components';
 import LayoutSidebar from './components/layout-sidebar';
 import withDefaultProps from 'packages/@core/base/shared/src/utils/withDefault';
@@ -15,8 +15,13 @@ interface Props {
   onCollapsed:Function,
   sidebarWith?: number;
   sidebarCollapsed: boolean;
+  sidebarExpandOnHover: boolean;
   sidebarHidden?: boolean;
   sideCollapseWidth?:number;
+  onHover:Function;
+  sidebarAsideHoving:boolean;
+  onAsideIn:MouseEventHandler| undefined;
+  onAsideOut:MouseEventHandler| undefined;
 }
 
 const Container = styled.div`
@@ -69,6 +74,7 @@ const Mask = styled.div`
 
 const SugarLayout = (props: Props) => {
 
+
   const mergeProps = useMemo(
     () =>
       withDefaultProps(
@@ -95,17 +101,32 @@ const SugarLayout = (props: Props) => {
     }else{
       width= mergeProps.sidebarWith??0
     }
+
+    if(!mergeProps?.sidebarAsideHoving&&!mergeProps?.sidebarExpandOnHover){
+      width=mergeProps.sideCollapseWidth??0
+    }else{
+    }
+
     return width;
 
-  }, [ mergeProps]);
+  }, [ mergeProps,mergeProps?.sidebarAsideHoving]);
 
   const getSidebarExtraWidth = useMemo(() => {
     var width = mergeProps.sidebarCollapsed
       ? mergeProps.sidebarExtraCollapsedWidth
       : mergeProps?.sidebarWith;
       width=width??0
+
+      if(!mergeProps?.sidebarAsideHoving&&!mergeProps?.sidebarExpandOnHover){
+        width=mergeProps.sideCollapseWidth??0
+      }else{
+      }
+  
+
     return width;
-  }, [ mergeProps]);
+  }, [ mergeProps,mergeProps?.sidebarAsideHoving]);
+
+
 
   return (
     <Container>
@@ -115,6 +136,11 @@ const SugarLayout = (props: Props) => {
            extraWidth={getSidebarExtraWidth}
            collapsed={mergeProps.sidebarCollapsed}
            onCollapsed={mergeProps.onCollapsed}
+           expandonHover={mergeProps.sidebarExpandOnHover}
+           onHover={mergeProps.onHover}
+
+           onAsideIn={mergeProps?.onAsideIn}
+           onAsideOut={mergeProps?.onAsideOut}
         >
         </LayoutSidebar>
       )}

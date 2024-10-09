@@ -1,7 +1,8 @@
 import withDefaultProps from 'packages/@core/base/shared/src/utils/withDefault';
-import { ReactNode, useState } from 'react';
+import { MouseEventHandler, ReactNode, useState } from 'react';
 import styled from 'styled-components';
 import SidebarCollapseButton from './widgets/sidebar-collapse-button';
+import SidebarFixedButton from './widgets/sidebar-fixed-button';
 
 interface Props {
   logo?: ReactNode; // 可选的 logo 元素
@@ -10,7 +11,11 @@ interface Props {
   width:number;
   extraWidth:number,
   collapsed:boolean,
-  onCollapsed:Function
+  expandonHover:boolean,
+  onCollapsed:Function,
+  onAsideIn?:MouseEventHandler| undefined,
+  onAsideOut?:MouseEventHandler | undefined,
+  onHover:Function,
 }
 
 const HiddenContainer = styled.div`
@@ -58,13 +63,24 @@ const LayoutSidebar = (props: Props) => {
   return (
     <>
       <HiddenContainer></HiddenContainer>
-      <AsideContainer width={mergeProps.width}>
+      <AsideContainer width={mergeProps.width}
+        onMouseEnter={mergeProps?.onAsideIn}
+        onMouseLeave={mergeProps?.onAsideOut}
+      >
         <LogoSlotHeader width={mergeProps.width}>{mergeProps?.logo ?? <></>}</LogoSlotHeader>
 
         <SidebarCollapseButton
           collapsed={mergeProps?.collapsed}
           onCollapsed={mergeProps?.onCollapsed}
         />
+
+        {(!mergeProps?.collapsed==true)?
+        <SidebarFixedButton
+          onExpandOnHover={mergeProps?.onHover}
+          expandOnHover={mergeProps?.expandonHover}
+        >
+        </SidebarFixedButton>:(<></>)
+         }
       </AsideContainer>
     </>
   );
