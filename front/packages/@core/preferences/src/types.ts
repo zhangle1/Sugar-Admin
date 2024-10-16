@@ -46,6 +46,12 @@ interface ThemePreferences {
 
     bgSideBar:string;
 
+    menuItemsActiveColor:string;
+
+    menuItemActiveHoverBg:string;
+
+    menuItemColor:string;
+
     border:string;
   }
 

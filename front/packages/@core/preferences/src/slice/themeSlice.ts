@@ -34,6 +34,11 @@ const initialState: ThemePreferences = {
   builtinType: 'default',
   colorDestructive: '#f00',
   colorPrimary: 'hsl(231 98% 65%)',
+
+  menuItemColor:'hsl( 224 71.4% 4.1% )',
+  menuItemsActiveColor:'hsl(231 98% 65%)',
+  menuItemActiveHoverBg:'hsl( 245 82% 67% /15%)',
+  
   colorSuccess: '#0f0',
   colorWarning: '#ff0',
   mode: 'light',

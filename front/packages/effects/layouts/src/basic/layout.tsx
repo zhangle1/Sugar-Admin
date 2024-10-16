@@ -7,6 +7,8 @@ import SugarLayout from 'packages/@core/ui-kit/layout-ui/src/sugar-layout';
 import SugarLogo from 'packages/@core/ui-kit/shadcn-ui/src/components/logo/logo';
 import { useMemo, useState } from 'react';
 import { useDispatch } from 'react-redux';
+import LayoutMenu from './menu/menu';
+import { useMockData } from '../hooks/useMockData';
 
 const BasicLayout = (props: any) => {
   const sidebar = useSidebarSelector();
@@ -40,9 +42,9 @@ const BasicLayout = (props: any) => {
     var collapsed = false;
     collapsed = sidebar.collapsed;
 
-    console.log("asideHoving:"+asideHoving)
-    console.log("expandOnHover:"+sidebar.expandOnHover)
-    if (sidebar.expandOnHover==false && asideHoving==false) {
+    console.log('asideHoving:' + asideHoving);
+    console.log('expandOnHover:' + sidebar.expandOnHover);
+    if (sidebar.expandOnHover == false && asideHoving == false) {
       collapsed = true;
     }
 
@@ -55,9 +57,24 @@ const BasicLayout = (props: any) => {
     );
   }, [sidebar.collapsed, asideHoving, sidebar.expandOnHover]);
 
+  const { menuItems } = useMockData();
+
+  const menu = useMemo(() => {
+
+    var collapsed=false;
+    if(sidebar.collapsed){
+      collapsed=true
+    }
+    if(!asideHoving&&!sidebar.expandOnHover){
+      collapsed=true
+    }
+    return <LayoutMenu items={menuItems} collapsed={collapsed}></LayoutMenu>;
+  }, [menuItems,sidebar.collapsed,asideHoving,sidebar.expandOnHover]);
+
   return (
     <SugarLayout
       logo={logo}
+      menu={menu}
       sidebarCollapsed={sidebar.collapsed}
       sidebarExpandOnHover={sidebar.expandOnHover}
       sidebarAsideHoving={asideHoving}

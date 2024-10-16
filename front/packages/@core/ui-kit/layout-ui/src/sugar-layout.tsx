@@ -5,6 +5,7 @@ import withDefaultProps from 'packages/@core/base/shared/src/utils/withDefault';
 
 interface Props {
   logo?: ReactNode;
+  menu?:ReactNode;
   sidebarEnableState?: boolean;
   headerVisible?: boolean;
   tabbarEnable?: boolean;
@@ -132,11 +133,13 @@ const SugarLayout = (props: Props) => {
     <Container>
       {mergeProps?.sidebarEnableState && (
         <LayoutSidebar logo={mergeProps?.logo}
+          menu={mergeProps?.menu}
            width={getSidebarWith}
            extraWidth={getSidebarExtraWidth}
            collapsed={mergeProps.sidebarCollapsed}
            onCollapsed={mergeProps.onCollapsed}
            expandonHover={mergeProps.sidebarExpandOnHover}
+           asideHoving={mergeProps?.sidebarAsideHoving}
            onHover={mergeProps.onHover}
 
            onAsideIn={mergeProps?.onAsideIn}

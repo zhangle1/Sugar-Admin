@@ -13,10 +13,10 @@ const ToggleButton = styled.div`
   cursor: pointer;
   border-radius: 0.25rem;
   padding: 0.25rem;
+  border-color: ${props => props.theme.border};
 
   transition: background-color 0.2s;
   color: ${props => props.theme.foregroundColor};
-  border-color: ${props => props.theme.border};
 
   :hover {
     background: hsl(200deg 10% 90%);

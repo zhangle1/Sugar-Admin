@@ -57,6 +57,24 @@ const ColorCircle = styled.div`
 const ColorPicker = (props: any) => {
   const theme = useThemeSelector();
 
+  function convertHSLToHSLA(hsl, alpha) {
+    // 检查传入的 HSL 字符串
+    const hslPattern = /^hsl\(\s*(\d+)\s+(\d+)%\s+(\d+)%\s*\)$/;
+    const match = hsl.match(hslPattern);
+
+    if (!match) {
+        throw new Error("Invalid HSL format");
+    }
+    debugger
+    // 提取 HSL 的各个部分
+    const hue = match[1];      // 色相
+    const saturation = match[2]; // 饱和度
+    const lightness = match[3];  // 明度
+
+    // 构造带 alpha 通道的 HSL 字符串
+    return `hsl(${hue} ${saturation}% ${lightness}% / ${alpha}%)`;
+}
+
 
   
   const dispatch:PreferencesDispatch= useDispatch()
@@ -64,7 +82,9 @@ const ColorPicker = (props: any) => {
   const updateTheme=(key:string)=>{
     dispatch(setThemePreferences({
         builtinType:key,
-        colorPrimary:COLOR_PRESETS.filter(src=>src.type==key)?.[0]?.color
+        colorPrimary:COLOR_PRESETS.filter(src=>src.type==key)?.[0]?.color,
+        menuItemsActiveColor:COLOR_PRESETS.filter(src=>src.type==key)?.[0]?.color,
+        menuItemActiveHoverBg:convertHSLToHSLA(COLOR_PRESETS.filter(src=>src.type==key)?.[0]?.color,15),
     }))
   }
 

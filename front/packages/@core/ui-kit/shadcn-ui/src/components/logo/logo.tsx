@@ -35,7 +35,7 @@ const LogoImage = styled.img`
 `;
 
 const LogoText = styled.span`
-  color:${props => props.theme.colorPrimary};
+  color:${props => props.theme.foregroundColor};
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
