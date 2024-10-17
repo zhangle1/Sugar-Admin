@@ -93,9 +93,7 @@ const SugarLayout = (props: Props) => {
 
   const getSidebarWith = useMemo(() => {
     let width = 0;
-    // if(mergeProps.sidebarHidden){
-    //   return width;
-    // }
+
 
     if(mergeProps?.sidebarCollapsed){
       width=mergeProps.sideCollapseWidth??0
