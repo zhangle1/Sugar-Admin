@@ -2,16 +2,31 @@ import { Route } from 'react-router-dom';
 import ProtectedRoute from '../project-router';
 import { routes } from 'router/routes';
 import BasicView from 'layout/basic';
+import {
+  useMockData,
+  useRouteHelper
+} from '@sugar/layout-ui/src/hooks/useMockData';
 
-export function DashboardRoutes() {
+export const DashboardRoutes = () => {
+  const { menuItems } = useMockData();
+  const { findPath, getLeafNodes } = useRouteHelper();
+
+  const routePathList = getLeafNodes(menuItems).map(src => ({
+    path: findPath(menuItems, src.key),
+    name: src.label,
+    icon:src?.icon,
+    element: <Test name={src.label} />
+  }));
+
   return [
-    <Route
-      path={routes.root}
-      element={<ProtectedRoute element={<BasicView></BasicView>} />}
-    ></Route>
+    {
+      path: routes.root,
+      element: <ProtectedRoute element={<BasicView />} />,
+      children: routePathList
+    }
   ];
-}
+};
 
-const Root = () => {
-  return <div>根页面</div>;
+const Test = (props: any) => {
+  return <div>{props?.name ?? ''}</div>;
 };

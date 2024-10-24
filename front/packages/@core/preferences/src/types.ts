@@ -53,6 +53,8 @@ interface ThemePreferences {
     menuItemColor:string;
 
     border:string;
+
+    headerBgColor:string;
   }
 
 

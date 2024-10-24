@@ -8,7 +8,11 @@ import SugarLogo from 'packages/@core/ui-kit/shadcn-ui/src/components/logo/logo'
 import { useMemo, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import LayoutMenu from './menu/menu';
-import { useMockData } from '../hooks/useMockData';
+import { findPath, useMockData } from '../hooks/useMockData';
+import { LayoutHeader } from './header/header';
+import { useNavigate } from 'react-router-dom';
+import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbSeparator } from 'packages/@core/ui-kit/shadcn-ui/src/components/breadcrumb';
+import BreadCrumbWrapper from './breadcrumb/breadcrumb-wapper';
 
 const BasicLayout = (props: any) => {
   const sidebar = useSidebarSelector();
@@ -42,8 +46,7 @@ const BasicLayout = (props: any) => {
     var collapsed = false;
     collapsed = sidebar.collapsed;
 
-    console.log('asideHoving:' + asideHoving);
-    console.log('expandOnHover:' + sidebar.expandOnHover);
+
     if (sidebar.expandOnHover == false && asideHoving == false) {
       collapsed = true;
     }
@@ -58,22 +61,44 @@ const BasicLayout = (props: any) => {
   }, [sidebar.collapsed, asideHoving, sidebar.expandOnHover]);
 
   const { menuItems } = useMockData();
+  const navigate = useNavigate();
+
+  const handlerMenuChange = (key: string) => {
+    const routeKey= findPath(menuItems,key)
+    navigate(routeKey)
+  };
 
   const menu = useMemo(() => {
+    var collapsed = false;
+    if (sidebar.collapsed) {
+      collapsed = true;
+    }
+    if (!asideHoving && !sidebar.expandOnHover) {
+      collapsed = true;
+    }
 
-    var collapsed=false;
-    if(sidebar.collapsed){
-      collapsed=true
-    }
-    if(!asideHoving&&!sidebar.expandOnHover){
-      collapsed=true
-    }
-    return <LayoutMenu items={menuItems} collapsed={collapsed}></LayoutMenu>;
-  }, [menuItems,sidebar.collapsed,asideHoving,sidebar.expandOnHover]);
+    return (
+      <LayoutMenu
+        items={menuItems}
+        collapsed={collapsed}
+        onMenuChange={handlerMenuChange}
+      ></LayoutMenu>
+    );
+  }, [menuItems, sidebar.collapsed, asideHoving, sidebar.expandOnHover]);
+
+  const header = useMemo(() => {
+    const breadcrumbComponent=<BreadCrumbWrapper></BreadCrumbWrapper>
+
+
+    return <LayoutHeader
+    breadcrumb={breadcrumbComponent}
+    ></LayoutHeader>;
+  }, []);
 
   return (
     <SugarLayout
       logo={logo}
+      header={header}
       menu={menu}
       sidebarCollapsed={sidebar.collapsed}
       sidebarExpandOnHover={sidebar.expandOnHover}

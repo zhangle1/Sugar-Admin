@@ -11,6 +11,7 @@ export interface ButtonProps
     | 'outline'
     | 'secondary'
     | 'ghost'
+    | 'ghost-header'
     | 'link';
   size?: 'default' | 'sm' | 'lg' | 'icon';
   asChild?: boolean;

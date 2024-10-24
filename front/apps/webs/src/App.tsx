@@ -8,6 +8,7 @@ import { useEffect, useMemo } from 'react';
 import { LocalesContext, LocalesManager } from '@sugar/locales';
 import { appDesignerLocales } from 'locales';
 import { LocalesWrapper } from 'LocalesWrapper';
+import { RoutesWrapper } from 'router/routes/router-provider';
 // import { RequestWrapper } from 'RequestWrapper';
 
 function App() {
@@ -16,7 +17,9 @@ function App() {
       {/* <RequestWrapper> */}
         <LocalesWrapper>
           <GlobalStyle>
+            <RoutesWrapper>
             <RootRoutes></RootRoutes>
+            </RoutesWrapper>
           </GlobalStyle>
         </LocalesWrapper>
       {/* </RequestWrapper> */}

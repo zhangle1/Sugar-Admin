@@ -42,15 +42,18 @@ interface Props {
   zIndex: number;
 }
 
-const HeaderContainer = styled.header`
+const HeaderContainer = styled.header<{height:number,sidebarWidth:number}>`
   display: flex;
-  width: 100%;
   border-bottom: 1px solid;
-  background-color: var(--header-bg-color);
+  background-color:${p=>p.theme.headerBgColor};
+  height: 50px;
+  width: ${p=>`calc(100 - ${ p.sidebarWidth+'px'})`};
   transition: margin-top 0.2s;
   top: 0px;
   flex: 0 0 auto;
   transition-property: margin-top;
+  align-items:center;
+  padding-left:8px;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   transition-duration: 150ms;
   transition-duration: 200ms;
@@ -58,11 +61,13 @@ const HeaderContainer = styled.header`
 
 
 const LayoutHeader = (props: Props) => {
-  const { logo, toggleButton, children } = props;
+  const { logo, toggleButton, children,height ,sidebarWidth} = props;
   return (
-    <HeaderContainer>
+    <HeaderContainer height={height}
+    
+    sidebarWidth={sidebarWidth}
+    >
       {logo ?? <></>}
-      {toggleButton ?? <></>}
       {children}
     </HeaderContainer>
   );

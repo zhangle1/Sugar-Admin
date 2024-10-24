@@ -20,8 +20,8 @@ interface Props {
   onHover: Function;
 }
 
-const HiddenContainer = styled.div`
-  width: 230px;
+const HiddenContainer = styled.div<{width:number}>`
+  width: ${(props)=>`${props.width}px`};
   height: 100%;
 `;
 
@@ -83,7 +83,8 @@ const LayoutSidebar = (props: Props) => {
 
   return (
     <>
-      <HiddenContainer></HiddenContainer>
+      <HiddenContainer         width={mergeProps.width}
+      ></HiddenContainer>
       <AsideContainer
         width={mergeProps.width}
         onMouseEnter={mergeProps?.onAsideIn}

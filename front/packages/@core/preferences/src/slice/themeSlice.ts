@@ -13,6 +13,7 @@ export const lightTheme = {
   accent: 'hsl(0 0% 100%)',
   accentForeground: 'hsl(240 6% 10%)',
   bgSideBar: 'hsl(0 0% 100%)',
+  headerBgColor:'hsl(0 0% 100%)',
   border: 'hsl(240 5.9% 90%)'
 };
 
@@ -27,6 +28,7 @@ export const darkTheme = {
   accent: 'hsl(222.34deg 10.43% 12.27%)',
   accentForeground: 'hsl(0 0% 95%)',
   bgSideBar: 'hsl(222.34deg 10.43% 12.27%)',
+  headerBgColor:'hsl(0 0% 100%)',
   border: 'hsl(240 3.7% 22%)'
 };
 
@@ -55,6 +57,7 @@ const initialState: ThemePreferences = {
   accent: lightTheme.accent,
   accentForeground: lightTheme.accentForeground,
   bgSideBar: lightTheme.bgSideBar,
+  headerBgColor:lightTheme.headerBgColor,
   border: lightTheme.border
 };
 

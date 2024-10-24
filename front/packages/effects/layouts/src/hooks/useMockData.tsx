@@ -3,9 +3,9 @@ import { Children } from 'react';
 export function useMockData() {
   const menuItems = [
     {
-      key:'test',
-      label:"测试",
-      icon: <MenuOverViewIcon></MenuOverViewIcon>,
+      key: 'test',
+      label: '测试',
+      icon: <MenuOverViewIcon></MenuOverViewIcon>
     },
 
     {
@@ -50,21 +50,110 @@ export function useMockData() {
   return { menuItems };
 }
 
+export function useRouteHelper() {
+  function extractBreadcrumbs(path: string): string[] {
+    return path.split('/').filter(item => item !== '');
+  }
+
+  const findPath = (menu, targetKey, path = []) => {
+    for (const item of menu) {
+      const currentPath = [...path, item.key];
+
+      if (item.key === targetKey) {
+        return currentPath.join('/');
+      }
+
+      if (item.children) {
+        const result = findPath(item.children, targetKey, currentPath);
+        if (result) {
+          return result;
+        }
+      }
+    }
+    return ''; // 如果没有找到返回空字符串
+  };
+
+  const findRoot = (path: string, routes: any[]) => {
+    for (const item of routes) {
+      if (item.key === path) {
+        return item;
+      }
+
+      if (item.children) {
+        const result = findRoot(path, item.children);
+        if (result) {
+          return result;
+        }
+      }
+    }
+    return '';
+  };
+
+  const getLeafNodes = menuItems => {
+    let leaves = [];
+
+    menuItems.forEach(item => {
+      if (item.children && item.children.length > 0) {
+        leaves = leaves.concat(getLeafNodes(item.children));
+      } else {
+        leaves.push(item);
+      }
+    });
+
+    return leaves;
+  };
+
+  const parseLocationToBreadcrumbsItems = (location: string, routes: any[]) => {
+    const locationItems = extractBreadcrumbs(location);
+
+    const { menuItems } = useMockData();
+    ///获取到路由树
+    // const routeTree = routes.filter(filter => filter.path == '/');
+    const ret = locationItems.map(item => findRoot(item, menuItems));
+    debugger
+    return ret;
+  };
+
+  return {
+    findPath,
+    getLeafNodes,
+    extractBreadcrumbs,
+    parseLocationToBreadcrumbsItems,
+    findRoot
+  };
+}
+
+export function findPath(menu, targetKey, path = []) {
+  for (const item of menu) {
+    const currentPath = [...path, item.key];
+
+    if (item.key === targetKey) {
+      return currentPath.join('/');
+    }
+
+    if (item.children) {
+      const result = findPath(item.children, targetKey, currentPath);
+      if (result) {
+        return result;
+      }
+    }
+  }
+  return ''; // 如果没有找到返回空字符串
+}
+
 const MenuOverViewIcon = () => (
   <svg
-    t="1728956611495"
-    class="icon"
     viewBox="0 0 1024 1024"
     version="1.1"
     xmlns="http://www.w3.org/2000/svg"
-    p-id="5782"
+    p-id="11097"
     width="20"
     height="20"
   >
     <path
+      d="M810.666667 341.333333h85.333333a42.666667 42.666667 0 0 1 42.666667 42.666667v512a42.666667 42.666667 0 0 1-42.666667 42.666667h-341.333333a42.666667 42.666667 0 0 1-42.666667-42.666667v-42.666667H170.666667a42.666667 42.666667 0 0 1-42.666667-42.666666V128a42.666667 42.666667 0 0 1 42.666667-42.666667h597.333333a42.666667 42.666667 0 0 1 42.666667 42.666667v213.333333z m-85.333334 0V170.666667H213.333333v597.333333h298.666667V384a42.666667 42.666667 0 0 1 42.666667-42.666667h170.666666z m-128 85.333334v426.666666h256V426.666667h-256z"
       fill="currentcolor"
-      d="M485.9 487.6H315.6c-93.9 0-170.3-76.4-170.3-170.3S221.7 147 315.6 147s170.3 76.4 170.3 170.3v170.3zM315.6 191c-69.7 0-126.3 56.7-126.3 126.3S246 443.6 315.6 443.6h126.3V317.3c0-69.7-56.6-126.3-126.3-126.3z m390.8 296.6H536.1V317.3c0-93.9 76.4-170.3 170.3-170.3s170.3 76.4 170.3 170.3-76.4 170.3-170.3 170.3z m-126.3-44h126.3c69.7 0 126.3-56.7 126.3-126.3S776 191 706.4 191s-126.3 56.7-126.3 126.3v126.3zM706.4 877c-93.9 0-170.3-76.4-170.3-170.3V536.4h170.3c93.9 0 170.3 76.4 170.3 170.3S800.3 877 706.4 877zM580.1 580.4v126.3c0 69.7 56.7 126.3 126.3 126.3s126.3-56.7 126.3-126.3c0-69.7-56.7-126.3-126.3-126.3H580.1zM315.6 877c-93.9 0-170.3-76.4-170.3-170.3s76.4-170.3 170.3-170.3h170.3v170.3c0 93.9-76.4 170.3-170.3 170.3z m0-296.6c-69.7 0-126.3 56.7-126.3 126.3 0 69.7 56.7 126.3 126.3 126.3s126.3-56.7 126.3-126.3V580.4H315.6z"
-      p-id="5783"
+      p-id="11098"
     ></path>
   </svg>
 );

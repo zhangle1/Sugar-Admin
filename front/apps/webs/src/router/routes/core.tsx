@@ -10,24 +10,44 @@ import RegisterContainer from '@sugar/common-ui/src/ui/authentication/register';
 import LoginView from 'views/_core/authentication/login';
 
 
-export function FallbackNotFoundRoute() {
-  return [<Route path={routes.notFound} element={<TextNotFound />}></Route>];
-}
+// export function FallbackNotFoundRoute() {
+//   return [<Route path={routes.notFound} element={<TextNotFound />}></Route>];
+// }
 
-export function CoreRoutes() {
+ export const FallbackNotFoundRoute = () => {
+  return [{ path: routes.notFound, element: <TextNotFound />, name: 'Not Found' }];
+};
+
+// export function CoreRoutes() {
+//   return [
+//     // <Route path={routes.root} element={<ProtectedRoute />}></Route>,
+
+//     <Route path={routes.auth} element={<AuthenticationPage />}>
+//       <Route path="login" element={<LoginView />} />
+//       <Route path="forget-password" element={<FogetPasswordContainer />} />
+//       <Route path="code-login" element={<CodeLoginContainer />} />
+//       <Route path="qrcode-login" element={<QrCodeLoginContainer />} />
+//       <Route path="register" element={<RegisterContainer />} />
+//     </Route>
+//   ];
+// }
+
+export const CoreRoutes = () => {
   return [
-    // <Route path={routes.root} element={<ProtectedRoute />}></Route>,
-
-    <Route path={routes.auth} element={<AuthenticationPage />}>
-      <Route path="login" element={<LoginView />} />
-      <Route path="forget-password" element={<FogetPasswordContainer />} />
-      <Route path="code-login" element={<CodeLoginContainer />} />
-      <Route path="qrcode-login" element={<QrCodeLoginContainer />} />
-      <Route path="register" element={<RegisterContainer />} />
-    </Route>
+    {
+      path: routes.auth,
+      element: <AuthenticationPage />,
+      name: 'Auth',
+      children: [
+        { path: 'login', element: <LoginView />, name: 'Login' },
+        { path: 'forget-password', element: <FogetPasswordContainer />, name: 'Forget Password' },
+        { path: 'code-login', element: <CodeLoginContainer />, name: 'Code Login' },
+        { path: 'qrcode-login', element: <QrCodeLoginContainer />, name: 'QR Code Login' },
+        { path: 'register', element: <RegisterContainer />, name: 'Register' }
+      ]
+    }
   ];
-}
-
+};
 
 
 
