@@ -55,14 +55,14 @@ export function useRouteHelper() {
     return path.split('/').filter(item => item !== '');
   }
 
-  const findPath = (menu, targetKey, path = []) => {
+   function findPath(menu, targetKey, path = []) {
     for (const item of menu) {
       const currentPath = [...path, item.key];
-
+  
       if (item.key === targetKey) {
         return currentPath.join('/');
       }
-
+  
       if (item.children) {
         const result = findPath(item.children, targetKey, currentPath);
         if (result) {
@@ -71,7 +71,7 @@ export function useRouteHelper() {
       }
     }
     return ''; // 如果没有找到返回空字符串
-  };
+  }
 
   const findRoot = (path: string, routes: any[]) => {
     for (const item of routes) {
@@ -110,15 +110,56 @@ export function useRouteHelper() {
     ///获取到路由树
     // const routeTree = routes.filter(filter => filter.path == '/');
     const ret = locationItems.map(item => findRoot(item, menuItems));
-    debugger
+    
     return ret;
   };
+  function findFirstLeafChild(menu, key) {
+    for (const item of menu) {
+      console.log(`Checking item: ${item.key}`); // Debugging line
+      
+      if (item.key === key) {
+        console.log(`Match found: ${item.key}`); // Debugging line
+        
+        // If the item matches the key, check its children
+        if (item.children && item.children.length > 0) {
+          console.log(`Item ${item.key} has children:`, item.children.map(child => child.key)); // Debugging line
+          
+          for (const child of item.children) {
+            console.log(`Exploring child: ${child.key}`); // Debugging line
+            
+            const leaf = findFirstLeafChild([child], child.key); // Recursively search for a leaf
+            if (leaf) {
+              console.log(`Found leaf: ${leaf.key}`); // Debugging line
+              return leaf; // Return the found leaf child
+            }
+          }
+        } else {
+          return item;
+        }
+        
+        return null; // Return null if there are no leaf children
+      } else if (item.children) {
+        console.log(`Item ${item.key} does not match, checking children...`); // Debugging line
+        
+        // Continue searching in children if current item does not match
+        const result = findFirstLeafChild(item.children, key);
+        if (result) {
+          console.log(`Found leaf in children of ${item.key}: ${result.key}`); // Debugging line
+          return result; // Return the found leaf child from the recursive call
+        }
+      }
+    }
+    
+    console.log(`Key ${key} not found in current branch.`); // Debugging line
+    return null; // Return null if key not found
+  }
 
   return {
     findPath,
     getLeafNodes,
     extractBreadcrumbs,
     parseLocationToBreadcrumbsItems,
+    findFirstLeafChild,
     findRoot
   };
 }

@@ -6,37 +6,55 @@ import {
   BreadcrumbList,
   BreadcrumbSeparator
 } from '@sugar/@core/ui-kit/shadcn-ui';
-import { useLocation, useRoutes } from 'react-router-dom';
-import { findPath, useMockData, useRouteHelper } from '../../hooks/useMockData';
+import { useLocation, useNavigate, useRoutes } from 'react-router-dom';
+import { useMockData, useRouteHelper } from '../../hooks/useMockData';
 import React from 'react';
 
-interface Props {}
+interface Props {
+  onItemClick?: Function
+
+
+
+}
 
 const BreadCrumbWrapper = (props: Props) => {
+
+     const {onItemClick}= props
+
   const location = useLocation();
 
   const routes = useRoutesConfig() as any;
-  // const element = useRoutes(routes);
-  //   const currentRoute = routes.find(route => route.path === location.pathname);
-  //   console.log("currentRoute:"+JSON.stringify(currentRoute))
-  const { parseLocationToBreadcrumbsItems } = useRouteHelper();
 
-  //    const breadCrumPathList= extractBreadcrumbs(location.pathname)
+  const { findPath, parseLocationToBreadcrumbsItems, findFirstLeafChild } =
+    useRouteHelper();
+  // const navigate = useNavigate();
   const items = parseLocationToBreadcrumbsItems(location.pathname, routes);
-
-    const {menuItems}= useMockData()
+  const { menuItems } = useMockData();
+  const jumpToTargetMenu = (item: any) => {
+    var firstNode = findFirstLeafChild(menuItems, item?.key);
+    const targetPath = findPath(menuItems, firstNode?.key);
+    console.log("firstNode?.key:"+firstNode?.key)
+    // navigate(routeKey);
+    onItemClick?.(targetPath,firstNode?.key)
+  };
 
   const breadcrumbComponent = (
     <Breadcrumb>
       <BreadcrumbList>
         {items.map((item, index) => {
+          var noDeepLevel = index < items.length - 1;
+
           return (
             <React.Fragment key={index}>
-              <BreadcrumbItem>
-                <BreadcrumbLink >{item?.label}</BreadcrumbLink>
+              <BreadcrumbItem noDeepLevel={noDeepLevel}
+                onClick={() => {
+                  if (noDeepLevel) jumpToTargetMenu(item);
+                }}
+              >
+                <BreadcrumbLink>{item?.label}</BreadcrumbLink>
               </BreadcrumbItem>
               {/* 只有在不是最后一个元素时才渲染 BreadcrumbSeparator */}
-              {index < items.length - 1 && <BreadcrumbSeparator />}
+              {noDeepLevel && <BreadcrumbSeparator />}
             </React.Fragment>
           );
         })}

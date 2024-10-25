@@ -48,7 +48,7 @@ const useAuth = () => {
         
         dispatch(setUser(userInfo));
         dispatch(setAccessCodes(accessCodes))
-        debugger
+        
         onSuccess?await onSuccess?.():navigate(routes.root)
 
       }

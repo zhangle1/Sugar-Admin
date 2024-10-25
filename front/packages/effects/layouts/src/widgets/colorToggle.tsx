@@ -65,7 +65,7 @@ const ColorPicker = (props: any) => {
     if (!match) {
         throw new Error("Invalid HSL format");
     }
-    debugger
+    
     // 提取 HSL 的各个部分
     const hue = match[1];      // 色相
     const saturation = match[2]; // 饱和度

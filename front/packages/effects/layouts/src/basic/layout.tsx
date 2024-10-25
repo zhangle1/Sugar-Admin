@@ -5,7 +5,7 @@ import {
 } from '@sugar/@core/preferences';
 import SugarLayout from 'packages/@core/ui-kit/layout-ui/src/sugar-layout';
 import SugarLogo from 'packages/@core/ui-kit/shadcn-ui/src/components/logo/logo';
-import { useMemo, useState } from 'react';
+import { useMemo, useRef, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import LayoutMenu from './menu/menu';
 import { findPath, useMockData } from '../hooks/useMockData';
@@ -19,6 +19,16 @@ const BasicLayout = (props: any) => {
   const dispatch: PreferencesDispatch = useDispatch();
   const { setSidebarPreferences } = useSidebarAction();
   const [asideHoving, setAsideHoving] = useState(false);
+
+  const menuRef = useRef() ;
+  const navigate= useNavigate()
+
+  const handleChangeKey = (path:string,targetKey:string) => {
+    navigate(path);
+    menuRef.current.setActiveKey(targetKey); // 替换 'desiredKey' 为你想设置的 key
+  };
+
+
   const onAsideIn = () => {
     setAsideHoving(true);
   };
@@ -61,7 +71,6 @@ const BasicLayout = (props: any) => {
   }, [sidebar.collapsed, asideHoving, sidebar.expandOnHover]);
 
   const { menuItems } = useMockData();
-  const navigate = useNavigate();
 
   const handlerMenuChange = (key: string) => {
     const routeKey= findPath(menuItems,key)
@@ -80,20 +89,24 @@ const BasicLayout = (props: any) => {
     return (
       <LayoutMenu
         items={menuItems}
+        ref={menuRef}
         collapsed={collapsed}
         onMenuChange={handlerMenuChange}
       ></LayoutMenu>
     );
-  }, [menuItems, sidebar.collapsed, asideHoving, sidebar.expandOnHover]);
+  }, [menuItems, sidebar.collapsed, asideHoving, sidebar.expandOnHover,menuRef.current,]);
 
   const header = useMemo(() => {
-    const breadcrumbComponent=<BreadCrumbWrapper></BreadCrumbWrapper>
+    const breadcrumbComponent=<BreadCrumbWrapper
+    onItemClick={handleChangeKey}
+
+    ></BreadCrumbWrapper>
 
 
     return <LayoutHeader
     breadcrumb={breadcrumbComponent}
     ></LayoutHeader>;
-  }, []);
+  }, [handleChangeKey]);
 
   return (
     <SugarLayout

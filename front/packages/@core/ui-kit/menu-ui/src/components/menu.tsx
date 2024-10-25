@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useImperativeHandle, useState } from 'react';
 import styled from 'styled-components';
 import MenuItem, { Item } from './menu-item';
 
@@ -30,6 +30,13 @@ export const Menu = React.forwardRef<HTMLHtmlElement, MenuProps>(
       onMenuChange?.(key)
     };
   
+    useImperativeHandle(ref, () => ({
+      setActiveKey: (key: string) => {
+        setActiveKey(key);
+        onMenuChange?.(key);
+      }
+    }));
+
 
 
     return (
