@@ -11,8 +11,15 @@ import LayoutMenu from './menu/menu';
 import { findPath, useMockData } from '../hooks/useMockData';
 import { LayoutHeader } from './header/header';
 import { useNavigate } from 'react-router-dom';
-import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbSeparator } from 'packages/@core/ui-kit/shadcn-ui/src/components/breadcrumb';
+import {
+  Breadcrumb,
+  BreadcrumbItem,
+  BreadcrumbLink,
+  BreadcrumbList,
+  BreadcrumbSeparator
+} from 'packages/@core/ui-kit/shadcn-ui/src/components/breadcrumb';
 import BreadCrumbWrapper from './breadcrumb/breadcrumb-wapper';
+import GlobaSearch from '../widgets/global-search/global-search';
 
 const BasicLayout = (props: any) => {
   const sidebar = useSidebarSelector();
@@ -20,14 +27,13 @@ const BasicLayout = (props: any) => {
   const { setSidebarPreferences } = useSidebarAction();
   const [asideHoving, setAsideHoving] = useState(false);
 
-  const menuRef = useRef() ;
-  const navigate= useNavigate()
+  const menuRef = useRef();
+  const navigate = useNavigate();
 
-  const handleChangeKey = (path:string,targetKey:string) => {
+  const handleChangeKey = (path: string, targetKey: string) => {
     navigate(path);
     menuRef.current.setActiveKey(targetKey); // 替换 'desiredKey' 为你想设置的 key
   };
-
 
   const onAsideIn = () => {
     setAsideHoving(true);
@@ -56,7 +62,6 @@ const BasicLayout = (props: any) => {
     var collapsed = false;
     collapsed = sidebar.collapsed;
 
-
     if (sidebar.expandOnHover == false && asideHoving == false) {
       collapsed = true;
     }
@@ -73,8 +78,8 @@ const BasicLayout = (props: any) => {
   const { menuItems } = useMockData();
 
   const handlerMenuChange = (key: string) => {
-    const routeKey= findPath(menuItems,key)
-    navigate(routeKey)
+    const routeKey = findPath(menuItems, key);
+    navigate(routeKey);
   };
 
   const menu = useMemo(() => {
@@ -94,18 +99,27 @@ const BasicLayout = (props: any) => {
         onMenuChange={handlerMenuChange}
       ></LayoutMenu>
     );
-  }, [menuItems, sidebar.collapsed, asideHoving, sidebar.expandOnHover,menuRef.current,]);
+  }, [
+    menuItems,
+    sidebar.collapsed,
+    asideHoving,
+    sidebar.expandOnHover,
+    menuRef.current
+  ]);
 
   const header = useMemo(() => {
-    const breadcrumbComponent=<BreadCrumbWrapper
-    onItemClick={handleChangeKey}
+    const breadcrumbComponent = (
+      <BreadCrumbWrapper onItemClick={handleChangeKey}></BreadCrumbWrapper>
+    );
 
-    ></BreadCrumbWrapper>
+    const globalSearch = <GlobaSearch></GlobaSearch>;
 
-
-    return <LayoutHeader
-    breadcrumb={breadcrumbComponent}
-    ></LayoutHeader>;
+    return (
+      <LayoutHeader
+        breadcrumb={breadcrumbComponent}
+        globalSearch={globalSearch}
+      ></LayoutHeader>
+    );
   }, [handleChangeKey]);
 
   return (

@@ -11,11 +11,11 @@ export interface AccessState {
   /**
    * 可访问的菜单列表
    */
-  accessMenus: MenuRecordRaw[];
+  accessMenus: Object[];
   /**
    * 可访问的路由列表
    */
-  accessRoutes: [];
+  accessRoutes: Object[];
   /**
    * 登录 accessToken
    */
@@ -50,6 +50,12 @@ const accessSlice = createSlice({
   reducers: {
     setAccess(state, action: PayloadAction<Partial<AccessState>>) {
       return { ...state, ...action.payload };
+    },
+    setAccessRoutes(state,action:PayloadAction<Object[]>){
+      state.accessRoutes=action.payload
+    },
+    setAccessMenus(state,action:PayloadAction<Object[]>){
+      state.accessMenus=action.payload
     },
     setAccessToken(state, action: PayloadAction<AccessToken>) {
       state.accessToken = action.payload;
